@@ -1,0 +1,16 @@
+POE::Component::SmokeBox::Dists
+===============================
+
+0.08	Tue Nov 11 21:37:24 GMT 2008
+	- Added Phalanx 100 search.
+
+0.06	Wed Sep 24 20:07:54 BST 2008
+	- Added force parameter.
+
+0.04	Wed Sep 17 11:27:42 BST 2008
+	- Switched from Parse::CPAN::Packages to using 
+	  CPAN::DistnameInfo. All processing is now 
+	  handled within the forked process.
+
+0.02	Tue Sep 16 15:11:09 BST 2008
+	- Initial CPAN release
