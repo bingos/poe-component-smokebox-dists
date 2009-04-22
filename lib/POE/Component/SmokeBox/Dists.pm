@@ -15,7 +15,7 @@ use POE qw(Wheel::Run);
 
 use vars qw($VERSION);
 
-$VERSION = '0.08';
+$VERSION = '1.00';
 
 sub author {
   my $package = shift;
@@ -263,6 +263,8 @@ sub _fetch {
   my $location = shift || return;
   my $url = shift;
   my @urls = qw(
+    http://cpan.cpantesters.org/
+    ftp://cpan.cpantesters.org/CPAN/
     ftp://ftp.funet.fi/pub/CPAN/
     http://www.cpan.org/
     ftp://ftp.cpan.org/pub/CPAN/
@@ -571,7 +573,7 @@ Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
 
 =head1 LICENSE
 
-Copyright (C) Chris Williams
+Copyright E<copy> Chris Williams
 
 This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
 

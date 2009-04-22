@@ -1,6 +1,11 @@
 POE::Component::SmokeBox::Dists
 ===============================
 
+1.00	Wed Apr 22 21:03:33 BST 2009
+	- Set the repository in META.yml
+	- Tidy the POD
+	- Update the default mirror list
+
 0.08	Tue Nov 11 21:37:24 GMT 2008
 	- Added Phalanx 100 search.
 
