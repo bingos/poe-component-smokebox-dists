@@ -531,6 +531,7 @@ Initiates an author search. Takes a number of parameters:
   'session', specify an alternative session to send results to;
   'force', force the poco to refresh the packages file regardless of age;
   'pkg_time', in seconds before the poco refreshes the packages file, defaults to 6 hours;
+  'url', the CPAN mirror url to use, defaults to a built-in list;
 
 =item C<distro>
 
@@ -541,6 +542,7 @@ Initiates a distribution search. Takes a number of parameters:
   'session', specify an alternative session to send results to;
   'force', force the poco to refresh the packages file regardless of age;
   'pkg_time', in seconds before the poco refreshes the packages file, defaults to 6 hours;
+  'url', the CPAN mirror url to use, defaults to a built-in list;
 
 =item C<phalanx>
 
@@ -550,6 +552,7 @@ Initiates a search for the Phalanx "100" distributions. Takes a number of parame
   'session', specify an alternative session to send results to;
   'force', force the poco to refresh the packages file regardless of age;
   'pkg_time', in seconds before the poco refreshes the packages file, defaults to 6 hours;
+  'url', the CPAN mirror url to use, defaults to a built-in list;
 
 =back
 
