@@ -1,11 +1,14 @@
 Changes
 examples/synopsis.pl
 inc/Module/Install.pm
+inc/Module/Install/AutoLicense.pm
 inc/Module/Install/Base.pm
 inc/Module/Install/Can.pm
 inc/Module/Install/Fetch.pm
+inc/Module/Install/GithubMeta.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
+inc/Module/Install/ReadmeFromPod.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/POE/Component/SmokeBox/Dists.pm
@@ -22,3 +25,4 @@ t/04_distro.t
 t/05_phalanx.t
 t/99_pod.t
 t/99_pod_coverage.t
+tools/git-log.pl
