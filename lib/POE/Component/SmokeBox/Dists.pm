@@ -303,11 +303,12 @@ sub _smokebox_dir {
   return cwd();
 }
 
+# List taken from Bundle::Phalanx100 v0.07
 sub _phalanx {
   return qw(
 	Test-Harness
 	Test-Reporter
-	Test-Simple
+	Test-Builder
 	Test-Builder-Tester
 	Sub-Uplevel
 	Test-Exception
@@ -318,7 +319,7 @@ sub _phalanx {
 	Pod-Simple
 	Test-Pod
 	YAML
-	PathTools
+	Cwd
 	Archive-Tar
 	Module-Build
 	Devel-Symdump
@@ -333,7 +334,7 @@ sub _phalanx {
 	URI
 	HTML-Tagset
 	HTML-Parser
-	libwww-perl
+	LWP
 	IPC-Run
 	CPANPLUS
 	DBI
@@ -341,20 +342,20 @@ sub _phalanx {
 	GD
 	MIME-Base64
 	Net-SSLeay
-	perl-ldap
+	Net-LDAP
 	XML-Parser
 	Apache-ASP
-	CGI.pm
-	DateManip
+	CGI
+	Date-Manip
 	DBD-Oracle
 	DBD-Pg
 	Digest-SHA1
 	Digest-HMAC
 	HTML-Tagset
 	HTML-Template
-	libnet
-	MailTools
-	MIME-tools
+	Net-Cmd
+	Mail-Mailer
+	MIME-Body
 	Net-DNS
 	Time-HiRes
 	Apache-DBI
@@ -367,7 +368,7 @@ sub _phalanx {
 	BerkeleyDB
 	Bit-Vector
 	Carp-Clan
-	Chart
+	Chart-Bars
 	Class-DBI
 	Compress-Zlib-Perl
 	Config-IniFiles
@@ -393,11 +394,11 @@ sub _phalanx {
 	Expect
 	ExtUtils-MakeMaker
 	File-Scan
-	PathTools
+	File-Spec
 	File-Tail
 	File-Temp
-	GDGraph
-	GDTextUtil
+	GD-Graph
+	GD-Text
 	Getopt-Long
 	HTML-Mason
 	Image-Size
@@ -409,8 +410,8 @@ sub _phalanx {
 	IO-All
 	IO-Socket-SSL
 	IO-String
-	IO-stringy
-	libxml-perl
+	IO-Stringy
+	XML-SAX2Perl
 	Mail-Audit
 	Mail-ClamAV
 	Mail-Sendmail
@@ -427,8 +428,8 @@ sub _phalanx {
 	Net-Telnet
 	OLE-Storage_Lite
 	Params-Validate
-	PerlMagick
-	PlRPC
+	Image-Magick
+	RPC-PlServer
 	Pod-Parser
 	POE
 	SNMP
@@ -437,15 +438,15 @@ sub _phalanx {
 	Spreadsheet-WriteExcel
 	Spreadsheet-WriteExcelXML
 	Storable
-	Template-Toolkit
-	TermReadKey
+	Template
+	Term-ReadKey
 	Term-ReadLine-Perl
 	Text-Iconv
-	TimeDate
-	Time-modules
+	Date-Parse
+	Time-Timezone
 	Unicode-String
 	Unix-Syslog
-	Verilog-Perl
+	Verilog-Parser
 	WWW-Mechanize
 	XML-DOM
 	XML-Generator
