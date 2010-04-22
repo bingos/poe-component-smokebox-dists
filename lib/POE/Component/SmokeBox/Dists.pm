@@ -519,7 +519,8 @@ run the search criteria. This process can take a little bit of time.
 
 =head1 CONSTRUCTORS
 
-There are a number of constructors:
+There are a number of constructors, they accept the parameters listed in addition to custom data. You
+can specify any data to be returned in the result if you name it with a leading underscore, i.e. "_foo".
 
 =over
 
