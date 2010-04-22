@@ -272,7 +272,8 @@ sub _fetch {
     http://www.cpan.org/
     ftp://ftp.cpan.org/pub/CPAN/
   );
-  unshift @urls, $url if $url;
+  @urls = ( $url ) if $url;
+#  unshift @urls, $url if $url;
   my $file;
   foreach my $url ( @urls ) {
     my $uri = URI->new( $url ) or next;
