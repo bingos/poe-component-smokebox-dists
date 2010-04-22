@@ -273,7 +273,6 @@ sub _fetch {
     ftp://ftp.cpan.org/pub/CPAN/
   );
   @urls = ( $url ) if $url;
-#  unshift @urls, $url if $url;
   my $file;
   foreach my $url ( @urls ) {
     my $uri = URI->new( $url ) or next;
@@ -308,7 +307,7 @@ sub _phalanx {
   return qw(
 	Test-Harness
 	Test-Reporter
-	Test-Builder
+	Test-Simple
 	Test-Builder-Tester
 	Sub-Uplevel
 	Test-Exception
@@ -319,7 +318,7 @@ sub _phalanx {
 	Pod-Simple
 	Test-Pod
 	YAML
-	Cwd
+	PathTools
 	Archive-Tar
 	Module-Build
 	Devel-Symdump
@@ -334,7 +333,7 @@ sub _phalanx {
 	URI
 	HTML-Tagset
 	HTML-Parser
-	LWP
+	libwww-perl
 	IPC-Run
 	CPANPLUS
 	DBI
@@ -342,10 +341,10 @@ sub _phalanx {
 	GD
 	MIME-Base64
 	Net-SSLeay
-	Net-LDAP
+	perl-ldap
 	XML-Parser
 	Apache-ASP
-	CGI
+	CGI.pm
 	Date-Manip
 	DBD-Oracle
 	DBD-Pg
@@ -353,9 +352,9 @@ sub _phalanx {
 	Digest-HMAC
 	HTML-Tagset
 	HTML-Template
-	Net-Cmd
-	Mail-Mailer
-	MIME-Body
+	libnet
+	MailTools
+	MIME-tools
 	Net-DNS
 	Time-HiRes
 	Apache-DBI
@@ -368,7 +367,7 @@ sub _phalanx {
 	BerkeleyDB
 	Bit-Vector
 	Carp-Clan
-	Chart-Bars
+	Chart
 	Class-DBI
 	Compress-Zlib-Perl
 	Config-IniFiles
@@ -397,8 +396,8 @@ sub _phalanx {
 	File-Spec
 	File-Tail
 	File-Temp
-	GD-Graph
-	GD-Text
+	GDGraph
+	GDTextUtil
 	Getopt-Long
 	HTML-Mason
 	Image-Size
@@ -410,8 +409,8 @@ sub _phalanx {
 	IO-All
 	IO-Socket-SSL
 	IO-String
-	IO-Stringy
-	XML-SAX2Perl
+	IO-stringy
+	libxml-perl
 	Mail-Audit
 	Mail-ClamAV
 	Mail-Sendmail
@@ -428,8 +427,8 @@ sub _phalanx {
 	Net-Telnet
 	OLE-Storage_Lite
 	Params-Validate
-	Image-Magick
-	RPC-PlServer
+	PerlMagick
+	PlRPC
 	Pod-Parser
 	POE
 	SNMP
@@ -438,15 +437,15 @@ sub _phalanx {
 	Spreadsheet-WriteExcel
 	Spreadsheet-WriteExcelXML
 	Storable
-	Template
-	Term-ReadKey
+	Template-Toolkit
+	TermReadKey
 	Term-ReadLine-Perl
 	Text-Iconv
-	Date-Parse
-	Time-Timezone
+  TimeDate
+  Time-modules
 	Unicode-String
 	Unix-Syslog
-	Verilog-Parser
+	Verilog-Perl
 	WWW-Mechanize
 	XML-DOM
 	XML-Generator
