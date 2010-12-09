@@ -93,6 +93,16 @@ CONSTRUCTORS
           'pkg_time', in seconds before the poco refreshes the packages file, defaults to 6 hours;
           'url', the CPAN mirror url to use, defaults to a built-in list;
 
+    "random"
+        Initiates a search for a random 100 CPAN distributions. Takes a
+        number of parameters:
+
+          'event', the name of the event to return results to, mandatory;
+          'session', specify an alternative session to send results to;
+          'force', force the poco to refresh the packages file regardless of age;
+          'pkg_time', in seconds before the poco refreshes the packages file, defaults to 6 hours;
+          'url', the CPAN mirror url to use, defaults to a built-in list;
+
     In all the constructors, "session" is only required if the component is
     not spawned from within an existing POE::Session or you wish the results
     event to be sent to an alternative existing POE::Session.

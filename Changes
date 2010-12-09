@@ -1,21 +1,59 @@
-POE::Component::SmokeBox::Dists
-===============================
+==============================
+2010-04-22 09:57:02 +0100 1.02
+==============================
 
-1.00	Wed Apr 22 21:03:33 BST 2009
-	- Set the repository in META.yml
-	- Tidy the POD
-	- Update the default mirror list
+  commit 39fbff9223460dd47cc6bf8768539ff691175390
+  Author: Chris Williams <chris@bingosnet.co.uk>
+  Date:   Thu Apr 22 09:57:02 2010 +0100
+  
+    Reversed most of the Phalanx changes, as they need to match the
+    distribution name.
 
-0.08	Tue Nov 11 21:37:24 GMT 2008
-	- Added Phalanx 100 search.
+    Bundle::Phalanx100 lists modules not the distributions.
 
-0.06	Wed Sep 24 20:07:54 BST 2008
-	- Added force parameter.
+  commit d197e2c2e29f320e9ff1dcea8b005c8d9a077079
+  Author: Chris Williams <chris@bingosnet.co.uk>
+  Date:   Thu Apr 22 07:29:33 2010 +0100
+  
+    Updated various build configuration.
 
-0.04	Wed Sep 17 11:27:42 BST 2008
-	- Switched from Parse::CPAN::Packages to using 
-	  CPAN::DistnameInfo. All processing is now 
-	  handled within the forked process.
+  commit 5871a4faa366074c7a4d4bc5127dac99d9f7f970
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Thu Apr 22 13:50:19 2010 +0800
+  
+    update the phalanx100 list to 0.07
 
-0.02	Tue Sep 16 15:11:09 BST 2008
-	- Initial CPAN release
+  commit a6e28405eb72185d6c57aebe483c2f3a06de71db
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Thu Apr 22 12:52:30 2010 +0800
+  
+    change the wording of custom data to one copied from CPANIDX, ha
+
+  commit ef8acc58ed7e7ea6eee50c03458e6007e10cdb79
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Thu Apr 22 12:43:33 2010 +0800
+  
+    document the use of private data parameters
+
+  commit 0a7bb61cf60376daa49a3f26b78c7ea106f57e94
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Thu Apr 22 12:32:28 2010 +0800
+  
+    when you specify the url, have it override the builtin - not append
+    to it
+
+  commit bc66c25d980a33f7f943d7e17ba9a864a0c984dc
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Thu Apr 22 12:31:28 2010 +0800
+  
+    document the url attribute
+
+  commit 12076f1dbb06f076a0b8fd281533f689402e78da
+  Author: Apocalypse <perl@0ne.us>
+  Date:   Thu Apr 22 12:16:42 2010 +0800
+  
+    add pkg_time to control age of packages file 
+
+==============
+End of Excerpt
+==============

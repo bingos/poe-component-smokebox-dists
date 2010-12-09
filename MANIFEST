@@ -23,6 +23,7 @@ t/02_check_fetch.t
 t/03_author.t
 t/04_distro.t
 t/05_phalanx.t
+t/06_random.t
 t/99_pod.t
 t/99_pod_coverage.t
 tools/git-log.pl

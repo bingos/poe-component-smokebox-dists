@@ -15,7 +15,7 @@ use POE qw(Wheel::Run);
 
 use vars qw($VERSION);
 
-$VERSION = '1.02';
+$VERSION = '1.04';
 
 sub author {
   my $package = shift;
@@ -32,6 +32,11 @@ sub phalanx {
   return $package->_spawn( @_, command => 'phalanx' );
 }
 
+sub random {
+  my $package = shift;
+  return $package->_spawn( @_, command => 'random' );
+}
+
 sub _spawn {
   my $package = shift;
   my %opts = @_;
@@ -40,7 +45,7 @@ sub _spawn {
   $opts{pkg_time} = 21600 unless $opts{pkg_time};
 
   my @mandatory = qw(event);
-  push @mandatory, 'search' unless $opts{command} eq 'phalanx';
+  push @mandatory, 'search' unless $opts{command} eq 'phalanx' or $opts{command} eq 'random';
   foreach my $mandatory ( @mandatory ) {
      next if $opts{ $mandatory };
      carp "The '$mandatory' parameter is a mandatory requirement\n";
@@ -241,14 +246,18 @@ sub _read_packages {
     elsif ( $command eq 'phalanx' ) {
        next unless exists $phalanx{ $distinfo->dist };
        if ( defined $phalanx{ $distinfo->dist } ) { 
-	   my $exists = CPAN::DistnameInfo->new( $phalanx{ $distinfo->dist } );
-	   if ( versioncmp( $distinfo->version, $exists->version ) == 1 ) {
-		$phalanx{ $distinfo->dist } = $path;
-	   }
+	       my $exists = CPAN::DistnameInfo->new( $phalanx{ $distinfo->dist } );
+	       if ( versioncmp( $distinfo->version, $exists->version ) == 1 ) {
+		        $phalanx{ $distinfo->dist } = $path;
+	       }
        }
        else { 
-	   $phalanx{ $distinfo->dist } = $path;
+	       $phalanx{ $distinfo->dist } = $path;
        }
+    }
+    elsif ( $command eq 'random' ) {
+       $dists{ $path } = 1;
+       next;
     }
     else {
        next unless eval { $distinfo->distvname() =~ /$search/ };
@@ -258,6 +267,16 @@ sub _read_packages {
   }
   if ( $command eq 'phalanx' ) {
     print $_, "\n" for grep { defined $_ } values %phalanx;
+  }
+  if ( $command eq 'random' ) {
+    my @dists = keys %dists;
+    my %picked;
+    while ( scalar keys %picked < 100 ) {
+      my $random = $dists[ rand( $#dists ) ];
+      next if $picked{ $random };
+      $picked{ $random } = $random;
+      print $random, "\n";
+    }
   }
   return;
 }
@@ -551,6 +570,16 @@ Initiates a distribution search. Takes a number of parameters:
 =item C<phalanx>
 
 Initiates a search for the Phalanx "100" distributions. Takes a number of parameters:
+
+  'event', the name of the event to return results to, mandatory;
+  'session', specify an alternative session to send results to;
+  'force', force the poco to refresh the packages file regardless of age;
+  'pkg_time', in seconds before the poco refreshes the packages file, defaults to 6 hours;
+  'url', the CPAN mirror url to use, defaults to a built-in list;
+
+=item C<random>
+
+Initiates a search for a random 100 CPAN distributions. Takes a number of parameters:
 
   'event', the name of the event to return results to, mandatory;
   'session', specify an alternative session to send results to;
