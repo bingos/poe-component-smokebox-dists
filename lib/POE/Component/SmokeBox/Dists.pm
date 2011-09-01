@@ -15,7 +15,7 @@ use POE qw(Wheel::Run);
 
 use vars qw($VERSION);
 
-$VERSION = '1.04';
+$VERSION = '1.06';
 
 sub author {
   my $package = shift;
@@ -285,11 +285,11 @@ sub _fetch {
   my $location = shift || return;
   my $url = shift;
   my @urls = qw(
+    http://www.cpan.org/
+    ftp://ftp.cpan.org/pub/CPAN/
     http://cpan.cpantesters.org/
     ftp://cpan.cpantesters.org/CPAN/
     ftp://ftp.funet.fi/pub/CPAN/
-    http://www.cpan.org/
-    ftp://ftp.cpan.org/pub/CPAN/
   );
   @urls = ( $url ) if $url;
   my $file;
@@ -298,6 +298,7 @@ sub _fetch {
     my @segs = $uri->path_segments();
     pop @segs unless $segs[$#segs];
     $uri->path_segments( @segs, 'modules', '02packages.details.txt.gz' );
+    local $File::Fetch::TIMEOUT = 30;
     my $ff = File::Fetch->new( uri => $uri->as_string() ) or next;
     $file = $ff->fetch( to => $location ) or next;
     last if $file;
