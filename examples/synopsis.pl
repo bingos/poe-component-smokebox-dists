@@ -25,7 +25,7 @@ sub _start {
 
 sub _results {
   my $ref = $_[ARG0];
-  
+
   return if $ref->{error}; # Oh dear there was an error
 
   print $_, "\n" for @{ $ref->{dists} };

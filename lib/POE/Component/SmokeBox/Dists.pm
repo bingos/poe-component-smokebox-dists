@@ -56,14 +56,14 @@ sub _spawn {
   $self->{session_id} = POE::Session->create(
      package_states => [
 	$self => [qw(
-			_start 
-			_initialise 
-			_dispatch 
-			_spawn_fetch 
-			_fetch_err 
-			_fetch_close 
-			_fetch_sout 
-			_fetch_serr 
+			_start
+			_initialise
+			_dispatch
+			_spawn_fetch
+			_fetch_err
+			_fetch_close
+			_fetch_sout
+			_fetch_serr
 			_spawn_process
 			_proc_close
 			_proc_sout
@@ -106,7 +106,7 @@ sub _initialise {
   my $return = { };
 
   my $smokebox_dir = File::Spec->catdir( _smokebox_dir(), '.smokebox' );
-  
+
   mkpath $smokebox_dir if ! -d $smokebox_dir;
   if ( ! -d $smokebox_dir ) {
      $return->{error} = "Could not create smokebox directory '$smokebox_dir': $!";
@@ -132,7 +132,7 @@ sub _initialise {
      $kernel->yield( '_spawn_fetch', $smokebox_dir, $self->{url} );
      return;
   }
-  
+
   # if packages file exists but is older than $self->{pkg_time}, fetch.
   # if packages file does not exist, fetch.
   # otherwise it exists so spawn packages processing.
@@ -245,13 +245,13 @@ sub _read_packages {
     }
     elsif ( $command eq 'phalanx' ) {
        next unless exists $phalanx{ $distinfo->dist };
-       if ( defined $phalanx{ $distinfo->dist } ) { 
+       if ( defined $phalanx{ $distinfo->dist } ) {
 	       my $exists = CPAN::DistnameInfo->new( $phalanx{ $distinfo->dist } );
 	       if ( versioncmp( $distinfo->version, $exists->version ) == 1 ) {
 		        $phalanx{ $distinfo->dist } = $path;
 	       }
        }
-       else { 
+       else {
 	       $phalanx{ $distinfo->dist } = $path;
        }
     }
@@ -307,8 +307,8 @@ sub _fetch {
 }
 
 sub _smokebox_dir {
-  return $ENV{PERL5_SMOKEBOX_DIR} 
-     if  exists $ENV{PERL5_SMOKEBOX_DIR} 
+  return $ENV{PERL5_SMOKEBOX_DIR}
+     if  exists $ENV{PERL5_SMOKEBOX_DIR}
      && defined $ENV{PERL5_SMOKEBOX_DIR};
 
   my @os_home_envs = qw( APPDATA HOME USERPROFILE WINDIR SYS$LOGIN );
@@ -488,21 +488,21 @@ POE::Component::SmokeBox::Dists - Search for CPAN distributions by cpanid or dis
 
   use strict;
   use warnings;
-  
+
   use POE;
   use POE::Component::SmokeBox::Dists;
-  
+
   my $search = '^BINGOS$';
-  
+
   POE::Session->create(
     package_states => [
   	'main' => [qw(_start _results)],
     ],
   );
-  
+
   $poe_kernel->run();
   exit 0;
-  
+
   sub _start {
     POE::Component::SmokeBox::Dists->author(
   	event => '_results',
@@ -510,20 +510,20 @@ POE::Component::SmokeBox::Dists - Search for CPAN distributions by cpanid or dis
     );
     return;
   }
-  
+
   sub _results {
     my $ref = $_[ARG0];
-    
+
     return if $ref->{error}; # Oh dear there was an error
-  
+
     print $_, "\n" for @{ $ref->{dists} };
-  
+
     return;
   }
 
 =head1 DESCRIPTION
 
-POE::Component::SmokeBox::Dists is a L<POE> component that provides non-blocking CPAN distribution 
+POE::Component::SmokeBox::Dists is a L<POE> component that provides non-blocking CPAN distribution
 searches. It is a wrapper around L<File::Fetch> for C<02packages.details.txt.gz> file retrieval,
 L<IO::Zlib> for extraction and L<CPAN::DistnameInfo> for parsing the packages data.
 
@@ -534,7 +534,7 @@ The component will retrieve the C<02packages.details.txt.gz> file to the C<.smok
 that file already exists, a newer version will only be retrieved if the file is older than 6 hours.
 Specifying the C<force> parameter overrides this behaviour.
 
-The C<02packages.details.txt.gz> is extracted and a L<CPAN::DistnameInfo> object built in order to 
+The C<02packages.details.txt.gz> is extracted and a L<CPAN::DistnameInfo> object built in order to
 run the search criteria. This process can take a little bit of time.
 
 =head1 CONSTRUCTORS
@@ -591,12 +591,12 @@ Initiates a search for a random 100 CPAN distributions. Takes a number of parame
 =back
 
 In all the constructors, C<session> is only required if the component is not spawned from within
-an existing L<POE::Session> or you wish the results event to be sent to an alternative 
+an existing L<POE::Session> or you wish the results event to be sent to an alternative
 existing L<POE::Session>.
 
 =head1 OUTPUT EVENT
 
-Once the component has finished, retrieving, extracting and processing an event will be sent. 
+Once the component has finished, retrieving, extracting and processing an event will be sent.
 
 C<ARG0> will be a hashref, with the following data:
 
