@@ -1,5 +1,7 @@
 package POE::Component::SmokeBox::Dists;
 
+#ABSTRACT: Search for CPAN distributions by cpanid or distribution name
+
 use strict;
 use warnings;
 use Carp;
@@ -12,10 +14,6 @@ use CPAN::DistnameInfo;
 use Sort::Versions;
 use IO::Zlib;
 use POE qw(Wheel::Run);
-
-use vars qw($VERSION);
-
-$VERSION = '1.06';
 
 sub author {
   my $package = shift;
@@ -478,11 +476,8 @@ sub _phalanx {
 }
 
 1;
-__END__
 
-=head1 NAME
-
-POE::Component::SmokeBox::Dists - Search for CPAN distributions by cpanid or distribution name
+=pod
 
 =head1 SYNOPSIS
 
@@ -496,7 +491,7 @@ POE::Component::SmokeBox::Dists - Search for CPAN distributions by cpanid or dis
 
   POE::Session->create(
     package_states => [
-  	'main' => [qw(_start _results)],
+	    'main' => [qw(_start _results)],
     ],
   );
 
@@ -505,8 +500,8 @@ POE::Component::SmokeBox::Dists - Search for CPAN distributions by cpanid or dis
 
   sub _start {
     POE::Component::SmokeBox::Dists->author(
-  	event => '_results',
-  	search => $search,
+      event => '_results',
+      search => $search,
     );
     return;
   }
@@ -609,16 +604,6 @@ The component uses the C<.smokebox> directory to stash the C<02packages.details.
 
 This is usually located in the current user's home directory. Setting the environment variable C<PERL5_SMOKEBOX_DIR> will
 effect where the C<.smokebox> directory is located.
-
-=head1 AUTHOR
-
-Chris C<BinGOs> Williams <chris@bingosnet.co.uk>
-
-=head1 LICENSE
-
-Copyright E<copy> Chris Williams
-
-This module may be used, modified, and distributed under the same terms as Perl itself. Please see the license that came with your Perl distribution for details.
 
 =head1 SEE ALSO
 
